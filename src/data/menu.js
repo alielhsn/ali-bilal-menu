@@ -30,6 +30,10 @@ export const items = [
   ingredientsEN: "Cream cheese, blueberry topping, biscuit base",
   ingredientsAR: "جبنة كريمية، صوص توت، قاعدة بسكويت",
   featured: true,
+  images: [
+    "/src/images/photo_2026-02-21_11-53-48.jpg",
+    "/src/images/photo_2026-02-21_11-53-51.jpg"
+  ],
   prices: [
     { label: "Slice", price: { usd: 4, ll: 360000 } },
     { label: "Whole Cake", price: { usd: 28, ll: 2520000 } },

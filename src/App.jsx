@@ -10,6 +10,7 @@ import BackToTop from "./components/BackToTop";
 import Footer from "./components/Footer";
 import CartButton from "./components/CartButton";
 import CartDrawer from "./components/CartDrawer";
+import ProductModal from "./components/ProductModal";
 
 const LS_LANG = "ab_lang";
 const LS_CURRENCY = "ab_currency";
@@ -36,6 +37,9 @@ export default function App() {
     const saved = localStorage.getItem(LS_CART);
     return saved ? JSON.parse(saved) : [];
   });
+  
+  const [selectedItem, setSelectedItem] = useState(null);
+  const [modalOpen, setModalOpen] = useState(false);
 
   const [cartOpen, setCartOpen] = useState(false);
   const [query, setQuery] = useState("");
@@ -70,6 +74,11 @@ export default function App() {
       localStorage.setItem(LS_POPULAR_COUNTS, JSON.stringify({}));
     }
   }, []);
+
+  const openProduct = (item) => {
+      setSelectedItem(item);
+      setModalOpen(true);
+    };
 
   const bumpPopular = (itemId, qty = 1) => {
     const t = todayKey();
@@ -319,7 +328,14 @@ export default function App() {
               // prevent duplication if most ordered is already shown above
               .filter((it) => it.id !== mostOrderedForActiveCategory?.id)
               .map((item) => (
-                <MenuItemCard key={item.id} item={item} lang={lang} currency={currency} addToCart={addToCart} />
+               <MenuItemCard
+                  key={item.id}
+                  item={item}
+                  lang={lang}
+                  currency={currency}
+                  addToCart={addToCart}
+                  onOpen={openProduct}
+                />
               ))}
           </AnimatePresence>
 
@@ -334,6 +350,14 @@ export default function App() {
           )}
         </motion.div>
       </main>
+      <ProductModal
+          open={modalOpen}
+          onClose={() => setModalOpen(false)}
+          item={selectedItem}
+          lang={lang}
+          currency={currency}
+          addToCart={addToCart}
+        />
 
       <Footer lang={lang} />
       <BackToTop />

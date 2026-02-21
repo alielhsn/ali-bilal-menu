@@ -8,7 +8,7 @@ function formatCurrency(value, currency) {
   return `${value.ll.toLocaleString()} LL`;
 }
 
-export default function MenuItemCard({ item, lang, currency, addToCart }) {
+export default function MenuItemCard({ item, lang, currency, addToCart, onOpen }) {
   const isAR = lang === "ar";
 
   const title = isAR ? item.nameAR : item.name;
@@ -34,7 +34,10 @@ export default function MenuItemCard({ item, lang, currency, addToCart }) {
       <div className="flex">
         
         {/* IMAGE SECTION (Perfect Square) */}
-        <div className="relative w-32 h-32 flex-shrink-0 overflow-hidden">
+        <div
+            className="relative w-32 h-32 flex-shrink-0 overflow-hidden cursor-pointer"
+            onClick={() => onOpen(item)}
+          >
           <img
             src={placeholder}
             alt={title}
