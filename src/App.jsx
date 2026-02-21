@@ -317,7 +317,13 @@ export default function App() {
               {isAR ? "الأكثر طلباً اليوم" : "Most Ordered Today"}
             </h2>
 
-            <MenuItemCard item={mostOrderedForActiveCategory} lang={lang} currency={currency} addToCart={addToCart} />
+            <MenuItemCard
+              item={mostOrderedForActiveCategory}
+              lang={lang}
+              currency={currency}
+              addToCart={addToCart}
+              onOpen={openProduct}
+            />
           </div>
         )}
 
