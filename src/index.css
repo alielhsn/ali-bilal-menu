@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ========= THEME TOKENS (CSS VARIABLES) ========= */
+:root {
+  --brand-brown: 92 58 33;      /* #5C3A21 */
+  --brand-lightBrown: 139 94 60; /* #8B5E3C */
+  --brand-cream: 248 244 239;   /* #F8F4EF */
+  --brand-border: 234 223 214;  /* #EADFD6 */
+}
+
+/* Premium Chocolate Dark Theme (Improved Contrast) */
+[data-theme="dark"] {
+  --brand-brown: 55 40 30;        /* Dark cocoa text (better on white cards) */
+  --brand-lightBrown: 120 95 75;  /* Muted warm secondary text */
+  --brand-cream: 28 20 16;        /* Deep chocolate background */
+  --brand-border: 70 55 45;       /* Soft cocoa border */
+}
+
+/* Mint theme (fresh) */
+[data-theme="mint"] {
+  --brand-brown: 16 60 50;
+  --brand-lightBrown: 58 120 105;
+  --brand-cream: 236 248 245;
+  --brand-border: 197 226 217;
+}
+
+/* Hide horizontal scrollbar for category tabs */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
