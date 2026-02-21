@@ -6,7 +6,7 @@ export default function CategoryTabs({ active, setActive, lang }) {
   const isAR = lang === "ar";
 
   return (
-    <div className="sticky top-[88px] z-40 bg-brand-cream/95 backdrop-blur border-b border-brand-border">
+    <div className="sticky top-[90px] z-40 bg-brand-cream/95 backdrop-blur border-b border-brand-border shadow-sm">
       <div className="max-w-3xl mx-auto overflow-x-auto no-scrollbar">
         <div className="flex gap-2 px-4 py-3 min-w-max">
           {categories.map((cat) => {

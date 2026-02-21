@@ -58,8 +58,8 @@ export default function App() {
   }, [theme]);
 
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }, [activeCategory]);
+      window.scrollTo({ top: 0 });
+    }, [activeCategory]);
 
   // ---- Daily reset for popular tracker ----
   useEffect(() => {
@@ -314,7 +314,7 @@ export default function App() {
 
         {/* Animated list */}
         <motion.div layout className="space-y-4">
-          <AnimatePresence mode="popLayout">
+          <AnimatePresence initial={false} mode="wait">
             {filteredItems
               // prevent duplication if most ordered is already shown above
               .filter((it) => it.id !== mostOrderedForActiveCategory?.id)

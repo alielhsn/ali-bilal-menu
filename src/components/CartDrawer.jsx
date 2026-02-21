@@ -47,24 +47,26 @@ export default function CartDrawer({
   };
 
   const generateMessage = () => {
-    let message = `🛍 Order from ${shop.name}%0A%0A`;
-    message += `👤 Name: ${customerName}%0A`;
-    message += `📍 Address: ${address}%0A%0A`;
-    message += `Items:%0A`;
+  const phone = "96171788746";
 
-    cart.forEach((item, index) => {
-      const value = currency === "usd" ? item.price.usd : item.price.ll;
-      message += `${index + 1}. ${item.name} x${item.qty} - ${formatCurrency(
-        value * item.qty,
-        currency
-      )}%0A`;
-    });
+  let message = `🛍 *New Order*\n\n`;
+  message += `👤 Name: ${customerName}\n`;
+  message += `📍 Address: ${address}\n\n`;
+  message += `🧾 Order Details:\n`;
 
-    message += `%0ADelivery: ${formatCurrency(DELIVERY_FEE, currency)}%0A`;
-    message += `Total: ${formatCurrency(total, currency)}`;
+  cart.forEach((item, index) => {
+    const value = currency === "usd" ? item.price.usd : item.price.ll;
+    message += `${index + 1}) ${item.name} x${item.qty} - ${formatCurrency(
+      value * item.qty,
+      currency
+    )}\n`;
+  });
 
-    return `https://wa.me/${shop.whatsapp}?text=${message}`;
-  };
+  message += `\n🚚 Delivery: ${formatCurrency(DELIVERY_FEE, currency)}\n`;
+  message += `💰 *Total: ${formatCurrency(total, currency)}*`;
+
+  return `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+};
 
   const handleOrderClick = () => {
     setError("");

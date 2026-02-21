@@ -4,7 +4,7 @@ export const shop = {
   phones: ["79143503", "71788746"],
   instagram: "ali.bilal.icecream",
   facebook: "AliBilalIceCream",
-  whatsapp: "96179143503", // international format (IMPORTANT)
+  whatsapp: "96171788746", // international format (IMPORTANT)
   location: "https://maps.google.com", // replace with real maps link
 };
 

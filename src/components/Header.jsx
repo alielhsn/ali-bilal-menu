@@ -6,8 +6,8 @@ export default function Header({ lang, setLang, currency, setCurrency, theme, se
   const isAR = lang === "ar";
 
   return (
-    <header className="bg-white/90 backdrop-blur border-b border-brand-border sticky top-0 z-50">
-      <div className="max-w-3xl mx-auto px-4 py-4 flex items-center gap-3">
+    <header className="bg-white/90 backdrop-blur border-b border-brand-border sticky top-0 z-50 h-[90px]">
+      <div className="max-w-3xl mx-auto px-4 h-full flex items-center gap-3">
         
         {/* LEFT SIDE */}
         <div className="flex items-center gap-4 flex-1">
