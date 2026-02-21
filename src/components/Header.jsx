@@ -17,11 +17,11 @@ export default function Header({ lang, setLang, currency, setCurrency, theme, se
             className="h-14 w-14 rounded-full object-cover border border-brand-border shadow-sm"
           />
 
-          <div>
+          <div className="leading-tight">
             <h1 className="text-lg font-semibold text-brand-brown">
               {shop.name}
             </h1>
-            <div className="text-sm text-brand-lightBrown">
+            <div className="text-xs text-brand-lightBrown mt-1">
               Tel: {shop.phones.join(" - ")}
             </div>
           </div>

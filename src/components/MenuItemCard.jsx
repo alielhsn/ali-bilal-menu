@@ -17,10 +17,7 @@ export default function MenuItemCard({ item, lang, currency, addToCart }) {
   return (
     <motion.div
       layout
-      initial={{ opacity: 0, y: 10, scale: 0.98 }}
-      animate={{ opacity: 1, y: 0, scale: 1 }}
-      exit={{ opacity: 0, y: 10, scale: 0.98 }}
-      transition={{ duration: 0.18 }}
+      transition={{ type: "spring", stiffness: 400, damping: 35 }}
       whileTap={{ scale: 0.98 }}
       className={`relative bg-white rounded-2xl border shadow-sm overflow-hidden transition-all duration-300
         ${item.featured ? "border-brand-brown/70 shadow-md" : "border-brand-border"}

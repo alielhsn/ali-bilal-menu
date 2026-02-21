@@ -176,7 +176,7 @@ export default function App() {
     }
 
     return bestCount > 0 ? best : null;
-  }, [activeCategory, cart]); // cart triggers recompute after updates
+  }, [activeCategory]); // cart triggers recompute after updates
 
   const filteredItems = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -313,8 +313,8 @@ export default function App() {
         )}
 
         {/* Animated list */}
-        <motion.div layout className="space-y-4">
-          <AnimatePresence initial={false} mode="wait">
+        <motion.div layout="position" className="space-y-4">
+          <AnimatePresence initial={false}>
             {filteredItems
               // prevent duplication if most ordered is already shown above
               .filter((it) => it.id !== mostOrderedForActiveCategory?.id)
